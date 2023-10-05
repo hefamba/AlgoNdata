@@ -1,15 +1,18 @@
-function uniqueVal(arr) {
-  let sorted = arr.sort((a, b) => a - b);
+function maxSubArray(arr, num) {
+  if (arr.length < num) return null;
+  let maxNum = 0;
+  let tempNum = 0;
 
-  let i = 0;
-  for (let j = 1; j < sorted.length; j++) {
-    if (sorted[i] !== sorted[j]) {
-      i++;
-      sorted[i] = sorted[j];
-    }
+  for (let i = 0; i < num; i++) {
+    maxNum += arr[i];
   }
-  return i + 1;
+  tempNum = maxNum;
+  for (let i = num; i < arr.length; i++) {
+    tempNum = tempNum - arr[i - num] + arr[i];
+    maxNum = Math.max(maxNum, tempNum);
+  }
+  return maxNum;
 }
 
-let result = uniqueVal([1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 4, 5, 88, 5, -9]);
-console.log(result);
+let res = maxSubArray([1, 3, 22, 2, 22, 7, 4, 3, 2, 50, 1, 1, 9, 10], 3);
+console.log(res);
