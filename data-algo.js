@@ -1,23 +1,15 @@
-function sumOfZero(arr) {
-  let sorted = arr.sort((a, b) => {
-    return a - b;
-  });
+function uniqueVal(arr) {
+  let sorted = arr.sort((a, b) => a - b);
 
-  let left = 0;
-  let right = sorted.length - 1;
-
-  while (left < right) {
-    let sum = sorted[left] + sorted[right];
-    if (sum < 0) {
-      left++;
-    } else if (sum > 0) {
-      right--;
-    } else {
-      return [sorted[left], sorted[right]];
+  let i = 0;
+  for (let j = 1; j < sorted.length; j++) {
+    if (sorted[i] !== sorted[j]) {
+      i++;
+      sorted[i] = sorted[j];
     }
   }
-  return 'nothing is zero';
+  return i + 1;
 }
 
-let result = sumOfZero([-1, 10, 11, -2, 0, -4, -8]);
+let result = uniqueVal([1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 4, 5, 88, 5, -9]);
 console.log(result);
