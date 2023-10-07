@@ -1,7 +1,21 @@
-function factorial(num) {
-  if (num === 1) return 1;
-  return num * factorial(num - 1);
-}
+var isPalindrome = function (s) {
+  // add regex method
+  let str = s.replace(/[^a-zA-Z0-9]/gi, '').toLowerCase();
+  console.log(str);
 
-let res = factorial(2);
+  // creating base case
+  if (str.length === 1 || str.length === 0) return true;
+  if (str.length === 2) {
+    return s[0] === s[1];
+  }
+
+  // create recursive case
+  if (str[0] === str.slice(-1)) {
+    return isPalindrome(str.slice(1, -1));
+  }
+
+  return false;
+};
+
+let res = isPalindrome('race a car');
 console.log(res);
