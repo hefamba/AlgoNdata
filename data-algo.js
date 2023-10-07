@@ -1,21 +1,16 @@
-var isPalindrome = function (s) {
-  // add regex method
-  let str = s.replace(/[^a-zA-Z0-9]/gi, '').toLowerCase();
-  console.log(str);
-
-  // creating base case
-  if (str.length === 1 || str.length === 0) return true;
-  if (str.length === 2) {
-    return s[0] === s[1];
+function bubbleSort(arr) {
+  for (let i = arr.length; i > 0; i--) {
+    for (let j = 0; j < i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        // let temp = arr[j];
+        // arr[j] = arr[j + 1];
+        // arr[j + 1] = temp;
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
   }
+  return arr;
+}
 
-  // create recursive case
-  if (str[0] === str.slice(-1)) {
-    return isPalindrome(str.slice(1, -1));
-  }
-
-  return false;
-};
-
-let res = isPalindrome('race a car');
+let res = bubbleSort([5, 83, 90, 3, 43, 2]);
 console.log(res);
