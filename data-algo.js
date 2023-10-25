@@ -1,17 +1,19 @@
-var replaceElements = function (arr) {
-  let max = arr[arr.length - 1];
-  arr[arr.length - 1] = -1;
+var isSubsequence = function (s, t) {
+  if (t.length < s.length) return false;
 
-  for (let i = arr.length - 2; i >= 0; i--) {
-    let curr = arr[i];
-    arr[i] = max;
-    if (curr > max) {
-      max = curr;
+  for (let i = 0; i <= t.length - s.length; i++) {
+    let str = '';
+    for (let j = 0; j < i - s.length; j++) {
+      str += t[j];
+    }
+    console.log(str);
+
+    if (str === s) {
+      return true;
     }
   }
-  return arr;
+  return false;
 };
-let res = replaceElements([17, 18, 5, 4, 6, 1]);
-console.log(res);
 
-// need to review this one more.
+let res = isSubsequence('abc', 'jfkabcld');
+console.log(res);
