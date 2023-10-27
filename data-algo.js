@@ -7,10 +7,6 @@ var isSubsequence = function (s, t) {
       str += t[j];
     }
     console.log(str);
-
-    if (str === s) {
-      return true;
-    }
   }
   return false;
 };
