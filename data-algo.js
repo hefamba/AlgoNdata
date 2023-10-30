@@ -10,6 +10,3 @@ var isSubsequence = function (s, t) {
   }
   return false;
 };
-
-let res = isSubsequence('abc', 'jfkabcld');
-console.log(res);
