@@ -1,12 +1,9 @@
-var isSubsequence = function (s, t) {
-  if (t.length < s.length) return false;
-
-  for (let i = 0; i <= t.length - s.length; i++) {
-    let str = '';
-    for (let j = 0; j < i - s.length; j++) {
-      str += t[j];
-    }
-    console.log(str);
-  }
-  return false;
+var lengthOfLastWord = function (s) {
+  let result = s.trim().split(' ');
+  let last = result.length - 1;
+  console.log(`index of ${last}`);
+  return console.log(`length of ${result[last].length}`);
 };
+
+let done = lengthOfLastWord('Hello World all day boy');
+console.log(done);
