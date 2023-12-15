@@ -1,24 +1,20 @@
-var longestCommonPrefix = function (strs) {
-  // Assume the prefix is the first word in the array
-  let pre = strs[0];
-  console.log(pre);
+var mergeAlternately = function (word1, word2) {
+  let i = 0;
+  let j = 0;
+  let str = [];
 
-  // Iterate through each word in the array
-  for (let word of strs) {
-    // Iterate through each character in the current word
-    console.log(word);
-    for (let i = pre.length - 1; i >= 0; i--) {
-      // If the characters do not match, update the prefix by removing the differing characters
-      if (pre[i] !== word[i]) {
-        pre = pre.slice(0, i);
-        console.log(pre);
-      }
-    }
+  while (i < word1.length && j < word2.length) {
+    str.push(word1[i]);
+    str.push(word2[j]);
+    i++;
+    j++;
   }
+  console.log(str);
 
-  // Return the final common prefix
-  return console.log(pre);
+  return str.join('');
 };
 
-let done = longestCommonPrefix(['flower', 'flow', 'flight']);
+let done = mergeAlternately('abc', 'pqr');
 console.log(done);
+
+return -1;
