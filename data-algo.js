@@ -9,7 +9,6 @@ var mergeAlternately = function (word1, word2) {
     i++;
     j++;
   }
-  console.log(str);
 
   return str.join('');
 };
