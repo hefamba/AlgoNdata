@@ -1,19 +1,10 @@
-var mergeAlternately = function (word1, word2) {
-  let i = 0;
-  let j = 0;
-  let str = [];
-
-  while (i < word1.length && j < word2.length) {
-    str.push(word1[i]);
-    str.push(word2[j]);
-    i++;
-    j++;
-  }
-
-  return str.join('');
+var isAnagram = function (s, t) {
+  let str = s.split('').sort().join('');
+  let str2 = t.split('').sort().join('');
+  console.log(str);
+  console.log(str2);
+  return str === str2;
 };
 
-let done = mergeAlternately('abc', 'pqr');
-console.log(done);
-
-return -1;
+let res = isAnagram('anagram', 'nagaram');
+console.log(res);
