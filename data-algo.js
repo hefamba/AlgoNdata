@@ -1,10 +1,13 @@
-var isAnagram = function (s, t) {
-  let str = s.split('').sort().join('');
-  let str2 = t.split('').sort().join('');
-  console.log(str);
-  console.log(str2);
-  return str === str2;
-};
+var twoSum = function (nums, target) {
+  let mp = {};
 
-let res = isAnagram('anagram', 'nagaram');
-console.log(res);
+  for (let i = 0; i < nums.length; i++) {
+    let diff = target - nums[i];
+
+    if (diff in mp) {
+      return [i, mp[diff]];
+    }
+
+    mp[nums[i]] = i;
+  }
+};
